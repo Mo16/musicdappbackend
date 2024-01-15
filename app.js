@@ -8,14 +8,16 @@ app.use(express.json());
 
 const randomVoice = [
     "5e510987-5353-4598-9d48-2bc0e23967e6",
-    "9033ec36-5066-48a9-86a7-c9b0fc368496",
-    "080e856b-6fcd-4010-bd3a-3bc0712037a3",
+    "4ec5c264-0a49-47c8-a3eb-c0d3518a65a1",
+    "e4d6a28a-1cc1-4687-a344-7e48aa949f2a",
 ];
 
 // Function to get a random element from an array
 function getRandomElement(arr) {
     const randomIndex = Math.floor(Math.random() * arr.length);
-    return arr[randomIndex];
+    const rand = arr[randomIndex]
+    console.log(rand)
+    return rand;
 }
 
 
