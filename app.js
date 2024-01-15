@@ -6,6 +6,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const randomVoice = [
+    "5e510987-5353-4598-9d48-2bc0e23967e6",
+    "9033ec36-5066-48a9-86a7-c9b0fc368496",
+    "080e856b-6fcd-4010-bd3a-3bc0712037a3",
+];
+
+// Function to get a random element from an array
+function getRandomElement(arr) {
+    const randomIndex = Math.floor(Math.random() * arr.length);
+    return arr[randomIndex];
+}
+
+
 app.post("/tts", async (req, res) => {
     console.log("hworking");
     const { lyrics } = req.body;
@@ -19,7 +32,7 @@ app.post("/tts", async (req, res) => {
                 "Basic cHViX3FoZm1jcWZ1ZWFmZHBoYnFzaDpwa185MjMxMGEyZC02NzZlLTQzY2UtYmVjMC0yOGM0YWU4Y2I1ODg=",
         },
         body: JSON.stringify({
-            voicemodel_uuid: "5e510987-5353-4598-9d48-2bc0e23967e6",
+            voicemodel_uuid: getRandomElement(randomVoice),
             format: "json",
             backing_track: "726f4142-c85a-4afc-a1e8-e76342692329",
             lyrics,
